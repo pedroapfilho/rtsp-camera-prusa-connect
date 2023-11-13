@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  prusa-camera:
+    image: linuxserver/ffmpeg
+    restart: always
+    entrypoint: /bin/bash
+    command: /upload.sh
+    environment:
+      RTSP_URL: "rtsp://<username>:<password>@<camera.ip.address>/stream1"
+      FINGERPRINT: "<fingerprint-from-prusa-connect>"
+      TOKEN: "<token-from-prusa-connect-link>"
+    volumes:
+      - ./upload.sh:/upload.sh
