@@ -7,8 +7,8 @@ services:
     entrypoint: /bin/bash
     command: /upload.sh
     environment:
-      RTSP_URL: "rtsp://<username>:<password>@<camera.ip.address>/stream1"
-      FINGERPRINT: "<fingerprint-from-prusa-connect>"
-      TOKEN: "<token-from-prusa-connect-link>"
+      RTSP_URL: ${RTSP_URL}
+      FINGERPRINT: ${FINGERPRINT}
+      TOKEN: ${TOKEN}
     volumes:
       - ./upload.sh:/upload.sh
